@@ -1,9 +1,11 @@
+import Calc from "./Calc";
+
 function App() {
-  return (
-    <div className="App">
-      Hello
-    </div>
-  );
+    return (
+        <div className="App">
+            <Calc />
+        </div>
+    );
 }
 
 export default App;
