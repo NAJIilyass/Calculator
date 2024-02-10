@@ -16,6 +16,12 @@ const Calc = () => {
     const [syntaxeError, setSyntaxeError] = useState(false);
     const [clickParenthesis, setClickParenthesis] = useState(0); //Array for couting value where we click ")", the first is the number and the second is the index
 
+    useEffect(() => {
+        if (value.length > 11) {
+            setValue(value.substring(0, 12));
+        }
+    }, [value]);
+
     return <div>Calc</div>;
 };
 
