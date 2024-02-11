@@ -38,6 +38,33 @@ const Calc = () => {
         clickParenthesis
     );
 
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === "*") {
+                handleClick("x");
+            } else if (e.key === "/") {
+                handleClick("÷");
+            } else if (e.key === "Backspace") {
+                handleClick("del");
+            } else if (e.key === "Enter") {
+                handleClick("ENTER");
+            } else if (/^\d$/.test(e.key)) {
+                handleClick(Number(e.key));
+            } else {
+                handleClick(e.key);
+            }
+            console.log(e.key);
+        };
+
+        // Add event listener when component mounts
+        window.addEventListener("keydown", handleKeyDown);
+
+        // Remove event listener when component unmounts
+        return () => {
+            window.removeEventListener("keydown", handleKeyDown);
+        };
+    });
+
     return <div>Calc</div>;
 };
 
