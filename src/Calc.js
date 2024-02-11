@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Calc = () => {
     const ch1 = ["(", ")", "ans", "del", "clear"];
@@ -21,6 +21,22 @@ const Calc = () => {
             setValue(value.substring(0, 12));
         }
     }, [value]);
+
+    useEffect(
+        () => {
+            if (line.includes("/0") || line.includes("%0")) {
+                setLine(line.substring(0, line.length - 2));
+                setAns1(0);
+                setSyntaxeError(true);
+            }
+            let myP = document.getElementById("forScrolling");
+            if (myP) {
+                myP.scrollBy(myP.scrollWidth + 100000, 0);
+            }
+        },
+        [line, ans],
+        clickParenthesis
+    );
 
     return <div>Calc</div>;
 };
