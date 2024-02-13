@@ -65,6 +65,28 @@ const Calc = () => {
         };
     });
 
+    const handleClick = (ch) => {
+        if (Number.isInteger(ch)) {
+            if (!click) {
+                if (line.charAt(line.length - 1) === ")") {
+                    setLine("0");
+                }
+                if (value.toString().includes(".")) {
+                    var [integerPart, decimalPart] = value.split(".");
+                    if (firstZero) {
+                        decimalPart = ch;
+                        setFirstZero(false);
+                    } else {
+                        decimalPart = decimalPart + ch;
+                    }
+                    setValue(integerPart + "." + decimalPart);
+                } else {
+                    setValue((parseInt(value * 10) + ch).toString());
+                }
+            }
+        }
+    };
+
     return <div>Calc</div>;
 };
 
