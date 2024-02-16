@@ -83,7 +83,11 @@ const Calc = () => {
                 } else {
                     setValue((parseInt(value * 10) + ch).toString());
                 }
+            } else {
+                setValue(ch.toString());
+                setClick(false);
             }
+            setClickNumber(true);
         }
     };
 
