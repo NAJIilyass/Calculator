@@ -88,6 +88,11 @@ const Calc = () => {
                 setClick(false);
             }
             setClickNumber(true);
+        } else if (ch === ".") {
+            if (!value.toString().includes(".")) {
+                setFirstZero(true);
+                setValue(value + ".0");
+            }
         }
     };
 
