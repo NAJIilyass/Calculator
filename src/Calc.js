@@ -93,6 +93,30 @@ const Calc = () => {
                 setFirstZero(true);
                 setValue(value + ".0");
             }
+        } else if (ch === "±") {
+            setValue(-value);
+        } else if (ch === "del") {
+            const splitValue = value.toString().split(".");
+            if (
+                splitValue &&
+                splitValue.length > 0 &&
+                splitValue[1] &&
+                splitValue[1].length === 1
+            ) {
+                setValue(
+                    value.toString().substring(0, value.toString().length - 2)
+                );
+            } else if (
+                value.toString().length === 1 ||
+                (value.toString().length === 2 &&
+                    value.toString().charAt(0) === "-")
+            ) {
+                setValue("0");
+            } else {
+                setValue(
+                    value.toString().substring(0, value.toString().length - 1)
+                );
+            }
         }
     };
 
