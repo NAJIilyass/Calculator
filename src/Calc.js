@@ -117,6 +117,12 @@ const Calc = () => {
                     value.toString().substring(0, value.toString().length - 1)
                 );
             }
+        } else if (ch === "clear") {
+            setLine("0");
+            setValue("0");
+            setAns("0");
+            setClickParenthesis(0);
+            setSyntaxeError(false);
         }
     };
 
