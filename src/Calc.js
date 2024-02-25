@@ -123,6 +123,10 @@ const Calc = () => {
             setAns("0");
             setClickParenthesis(0);
             setSyntaxeError(false);
+        } else if (ch === "ans") {
+            setValue(ans1);
+            setClick(true);
+            setClickNumber(false);
         }
     };
 
