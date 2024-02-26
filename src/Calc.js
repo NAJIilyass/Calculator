@@ -127,6 +127,25 @@ const Calc = () => {
             setValue(ans1);
             setClick(true);
             setClickNumber(false);
+        } else if (ch === "(") {
+            if (
+                line === "0" ||
+                (line && line.charAt(line.length - 1) === "=")
+            ) {
+                if (value === "0" || !clickNumber) {
+                    setLine(ch);
+                } else {
+                    setLine(value + "*" + ch);
+                }
+            } else {
+                if (value === ans && !clickNumber) {
+                    setLine(line + ch);
+                } else {
+                    setLine(line + value + "*" + ch);
+                }
+            }
+            setClickParenthesis(clickParenthesis + 1);
+            setClick(true);
         }
     };
 
