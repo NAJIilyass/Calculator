@@ -146,6 +146,18 @@ const Calc = () => {
             }
             setClickParenthesis(clickParenthesis + 1);
             setClick(true);
+        } else if (ch === ")") {
+            if (clickParenthesis > 0) {
+                if (line.charAt(line.length - 1) === "(") {
+                    setLine(line + "0" + ch);
+                } else if (line.charAt(line.length - 1) === ")") {
+                    setLine(line + ch);
+                } else {
+                    setLine(line + value + ch);
+                }
+                setClickParenthesis(clickParenthesis - 1);
+            }
+            setClick(true);
         }
     };
 
