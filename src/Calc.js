@@ -158,6 +158,20 @@ const Calc = () => {
                 setClickParenthesis(clickParenthesis - 1);
             }
             setClick(true);
+        } else if (ch === "+" || ch === "-" || ch === "%") {
+            if (line === "0") {
+                setLine(value + ch);
+                setAns(
+                    eval(
+                        (value + ch).substring(0, (value + ch).length - 1)
+                    ).toString()
+                );
+                setValue(
+                    eval(
+                        (value + ch).substring(0, (value + ch).length - 1)
+                    ).toString()
+                );
+            }
         }
     };
 
