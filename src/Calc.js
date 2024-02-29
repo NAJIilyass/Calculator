@@ -171,6 +171,10 @@ const Calc = () => {
                         (value + ch).substring(0, (value + ch).length - 1)
                     ).toString()
                 );
+            } else if (value === ans && !clickNumber && !line.endsWith(")")) {
+                setLine(line.substring(0, line.length - 1) + ch);
+            } else if (line.charAt(line.length - 1) === "=") {
+                setLine(ans + ch);
             }
         }
     };
