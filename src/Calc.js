@@ -182,6 +182,18 @@ const Calc = () => {
             } else {
                 if (clickParenthesis > 0) {
                     setLine(line + value + ch);
+                } else if (line.charAt(line.length - 1) === ")") {
+                    if (line.includes("√")) {
+                        setLine(line + ch);
+                        setAns(eval(line.replace("√", "Math.sqrt").toString()));
+                        setValue(
+                            eval(line.replace("√", "Math.sqrt").toString())
+                        );
+                    } else {
+                        setLine(line + ch);
+                        setAns(eval(line).toString());
+                        setValue(eval(line).toString());
+                    }
                 }
             }
         }
