@@ -179,6 +179,10 @@ const Calc = () => {
                 setLine(line.substring(0, line.length - 1) + ch);
             } else if (line.charAt(line.length - 1) === "=") {
                 setLine(ans + ch);
+            } else {
+                if (clickParenthesis > 0) {
+                    setLine(line + value + ch);
+                }
             }
         }
     };
