@@ -250,6 +250,8 @@ const Calc = () => {
                     }
                 }
             }
+            setClick(true);
+            setClickNumber(false);
         }
     };
 
