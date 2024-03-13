@@ -267,6 +267,8 @@ const Calc = () => {
                 );
             } else if (value === ans && !clickNumber && !line.endsWith(")")) {
                 setLine(line.substring(0, line.length - 1) + "*");
+            } else if (line.charAt(line.length - 1) === "=") {
+                setLine(ans + "*");
             }
         }
     };
