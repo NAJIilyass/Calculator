@@ -272,6 +272,18 @@ const Calc = () => {
             } else {
                 if (clickParenthesis > 0) {
                     setLine(line + value + "*");
+                } else if (line.charAt(line.length - 1) === ")") {
+                    if (line.includes("√")) {
+                        setLine(line + "*");
+                        setAns(eval(line.replace("√", "Math.sqrt").toString()));
+                        setValue(
+                            eval(line.replace("√", "Math.sqrt").toString())
+                        );
+                    } else {
+                        setLine(line + "*");
+                        setAns(eval(line).toString());
+                        setValue(eval(line).toString());
+                    }
                 }
             }
         }
