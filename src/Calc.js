@@ -284,6 +284,60 @@ const Calc = () => {
                         setAns(eval(line).toString());
                         setValue(eval(line).toString());
                     }
+                } else {
+                    if (line.includes("√")) {
+                        setLine(line + value + "*");
+                        setAns(
+                            eval(
+                                (
+                                    line.replace("√", "Math.sqrt") +
+                                    value +
+                                    "*"
+                                ).substring(
+                                    0,
+                                    (
+                                        line.replace("√", "Math.sqrt") +
+                                        value +
+                                        "*"
+                                    ).length - 1
+                                )
+                            ).toString()
+                        );
+                        setValue(
+                            eval(
+                                (
+                                    line.replace("√", "Math.sqrt") +
+                                    value +
+                                    "*"
+                                ).substring(
+                                    0,
+                                    (
+                                        line.replace("√", "Math.sqrt") +
+                                        value +
+                                        "*"
+                                    ).length - 1
+                                )
+                            ).toString()
+                        );
+                    } else {
+                        setLine(line + value + "*");
+                        setAns(
+                            eval(
+                                (line + value + "*").substring(
+                                    0,
+                                    (line + value + "*").length - 1
+                                )
+                            ).toString()
+                        );
+                        setValue(
+                            eval(
+                                (line + value + "*").substring(
+                                    0,
+                                    (line + value + "*").length - 1
+                                )
+                            ).toString()
+                        );
+                    }
                 }
             }
         }
