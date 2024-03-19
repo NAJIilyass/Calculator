@@ -342,6 +342,20 @@ const Calc = () => {
                 setClick(true);
                 setClickNumber(false);
             }
+        } else if (ch === "÷") {
+            if (line === "0") {
+                setLine(value + "/");
+                setAns(
+                    eval(
+                        (value + "/").substring(0, (value + "/").length - 1)
+                    ).toString()
+                );
+                setValue(
+                    eval(
+                        (value + "/").substring(0, (value + "/").length - 1)
+                    ).toString()
+                );
+            }
         }
     };
 
