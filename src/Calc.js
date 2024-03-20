@@ -355,6 +355,8 @@ const Calc = () => {
                         (value + "/").substring(0, (value + "/").length - 1)
                     ).toString()
                 );
+            } else if (value === ans && !clickNumber && !line.endsWith(")")) {
+                setLine(line.substring(0, line.length - 1) + "/");
             }
         }
     };
