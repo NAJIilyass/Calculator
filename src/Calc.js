@@ -359,6 +359,30 @@ const Calc = () => {
                 setLine(line.substring(0, line.length - 1) + "/");
             } else if (line.charAt(line.length - 1) === "=") {
                 setLine(ans + "/");
+            }else{
+                if(clickParenthesis>0){
+                    setLine(line+value+ch)
+                }else if(line.charAt(line.length-1)===')'){
+                    if(line.includes("√")){
+                        setLine(line+"/")
+                        setAns(eval(line.replace("√", "Math.sqrt").toString()))
+                        setValue(eval(line.replace("√", "Math.sqrt").toString()))
+                    }else{
+                        setLine(line+"/")
+                        setAns(eval(line).toString())
+                        setValue(eval(line).toString())
+                    }
+                }else{
+                    if(line.includes("√")){
+                        setLine(line+value+"/")
+                        setAns(eval((line.replace("√", "Math.sqrt")+value+"/").substring(0,(line.replace("√", "Math.sqrt")+value+"/").length-1)).toString())
+                        setValue(eval((line.replace("√", "Math.sqrt")+value+"/").substring(0,(line.replace("√", "Math.sqrt")+value+"/").length-1)).toString())
+                    }else{
+                        setLine(line+value+"/")
+                        setAns(eval((line+value+"/").substring(0,(line+value+"/").length-1)).toString())
+                        setValue(eval((line+value+"/").substring(0,(line+value+"/").length-1)).toString())
+                    }
+                }
             }
         }
     };
