@@ -175,10 +175,6 @@ const Calc = () => {
                 setLine(line.substring(0, line.length - 1) + ch);
             } else if (line.charAt(line.length - 1) === "=") {
                 setLine(ans + ch);
-            } else if (value === ans && !clickNumber && !line.endsWith(")")) {
-                setLine(line.substring(0, line.length - 1) + ch);
-            } else if (line.charAt(line.length - 1) === "=") {
-                setLine(ans + ch);
             } else {
                 if (clickParenthesis > 0) {
                     setLine(line + value + ch);
@@ -339,9 +335,9 @@ const Calc = () => {
                         );
                     }
                 }
-                setClick(true);
-                setClickNumber(false);
             }
+            setClick(true);
+            setClickNumber(false);
         } else if (ch === "÷") {
             if (line === "0") {
                 setLine(value + "/");
@@ -429,6 +425,26 @@ const Calc = () => {
                         );
                     }
                 }
+            }
+            setClick(true);
+            setClickNumber(false);
+        } else if (ch === "√") {
+            if (line === "0") {
+                setLine(ch + "(" + value + ")");
+                setAns(eval("Math.sqrt(" + value + ")").toString());
+                setValue(eval("Math.sqrt(" + value + ")").toString());
+            } else if (value === ans && !clickNumber && value === "0") {
+                setLine(ch + "(" + line + ")");
+                setAns(eval("Math.sqrt(" + line + ")").toString());
+                setValue(eval("Math.sqrt(" + line + ")").toString());
+            } else if (line.charAt(line.length - 1) === "=") {
+                setLine(ch + "(" + ans + ")");
+                setAns(eval("Math.sqrt(" + ans + ")").toString());
+                setValue(eval("Math.sqrt(" + ans + ")").toString());
+            } else {
+                setLine(line + ch + "(" + value + ")");
+                setAns(eval(line + "Math.sqrt(" + value + ")").toString());
+                setValue(eval(line + "Math.sqrt(" + value + ")").toString());
             }
             setClick(true);
             setClickNumber(false);
