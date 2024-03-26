@@ -448,6 +448,10 @@ const Calc = () => {
             }
             setClick(true);
             setClickNumber(false);
+        } else if (ch === "ENTER") {
+            if (clickParenthesis !== 0) {
+                setSyntaxeError(true);
+            }
         }
     };
 
