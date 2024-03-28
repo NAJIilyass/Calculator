@@ -451,6 +451,29 @@ const Calc = () => {
         } else if (ch === "ENTER") {
             if (clickParenthesis !== 0) {
                 setSyntaxeError(true);
+            } else {
+                if (!(line && line.charAt(line.length - 1) === "=")) {
+                    if (value === ans && !clickNumber && !line.endsWith(")")) {
+                        if (line.includes("√")) {
+                            setLine(line.substring(0, line.length - 1) + "=");
+                            setAns(
+                                eval(
+                                    line.replace("√", "Math.sqrt") + value
+                                ).toString()
+                            );
+                            setAns1(
+                                eval(
+                                    line.replace("√", "Math.sqrt") + value
+                                ).toString()
+                            );
+                            setValue(
+                                eval(
+                                    line.replace("√", "Math.sqrt") + value
+                                ).toString()
+                            );
+                        }
+                    }
+                }
             }
         }
     };
