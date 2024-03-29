@@ -471,6 +471,11 @@ const Calc = () => {
                                     line.replace("√", "Math.sqrt") + value
                                 ).toString()
                             );
+                        } else {
+                            setLine(line.substring(0, line.length - 1) + "=");
+                            setAns(eval(line + value).toString());
+                            setAns1(eval(line + value).toString());
+                            setValue(eval(line + value).toString());
                         }
                     }
                 }
