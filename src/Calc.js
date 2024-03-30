@@ -477,6 +477,9 @@ const Calc = () => {
                             setAns1(eval(line + value).toString());
                             setValue(eval(line + value).toString());
                         }
+                    } else if (line === "0") {
+                        setLine(value + "=");
+                        setAns1(value);
                     }
                 }
             }
