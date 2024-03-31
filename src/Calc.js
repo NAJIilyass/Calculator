@@ -480,6 +480,14 @@ const Calc = () => {
                     } else if (line === "0") {
                         setLine(value + "=");
                         setAns1(value);
+                    } else if (
+                        /^[0-9]+$/.test(line.substring(0, line.length - 1)) &&
+                        ans1 !== value &&
+                        !clickNumber
+                    ) {
+                        //Pour savoir si on est dans le cas quand user change le symbole (de + à = par exemple)
+                        setLine(line.substring(0, line.length - 1) + "=");
+                        setAns1(line.substring(0, line.length - 1));
                     }
                 }
             }
