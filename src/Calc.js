@@ -488,6 +488,24 @@ const Calc = () => {
                         //Pour savoir si on est dans le cas quand user change le symbole (de + à = par exemple)
                         setLine(line.substring(0, line.length - 1) + "=");
                         setAns1(line.substring(0, line.length - 1));
+                    } else if (line.charAt(line.length - 1) === ")") {
+                        if (line.includes("√")) {
+                            setLine(line + "=");
+                            setAns(
+                                eval(line.replace("√", "Math.sqrt")).toString()
+                            );
+                            setAns1(
+                                eval(line.replace("√", "Math.sqrt")).toString()
+                            );
+                            setValue(
+                                eval(line.replace("√", "Math.sqrt")).toString()
+                            );
+                        } else {
+                            setLine(line + "=");
+                            setAns(eval(line).toString());
+                            setAns1(eval(line).toString());
+                            setValue(eval(line).toString());
+                        }
                     }
                 }
             }
