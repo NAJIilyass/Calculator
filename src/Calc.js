@@ -531,13 +531,17 @@ const Calc = () => {
                             setValue(eval(line + value).toString());
                         }
                     }
-                    setClickNumber(false);
                 }
+                setClickNumber(false);
             }
         }
     };
 
-    return <div>Calc</div>;
+    return (
+        <div className="bg-white rounded-2xl h-8/12 md:h-11/12 w-11/12 lg:w-9/12 xl:w-2/6 text-base lg:text-2xl min-w-[400px] font-semibold select-none font-montserrat text-blue-800 px-7 py-8">
+            Calc
+        </div>
+    );
 };
 
 export default Calc;
