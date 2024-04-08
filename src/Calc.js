@@ -539,7 +539,27 @@ const Calc = () => {
 
     return (
         <div className="bg-white rounded-2xl h-8/12 md:h-11/12 w-11/12 lg:w-9/12 xl:w-2/6 text-base lg:text-2xl min-w-[400px] font-semibold select-none font-montserrat text-blue-800 px-7 py-8">
-            Calc
+            <div className="bg-blue-100 h-2/6 pb-4 pt-2 rounded-lg px-2">
+                <p
+                    id="forScrolling"
+                    className="text-right text-lg mr-5 border-3 overflow-x-auto"
+                >
+                    {line}
+                </p>
+                {!syntaxeError && (
+                    <input
+                        type="number"
+                        value={value}
+                        onChange={(e) => setValue(e.target.value)}
+                        className="bg-blue-100 text-right font-mono text-blue-950 text-6xl w-full"
+                    />
+                )}
+                {syntaxeError && (
+                    <p className="bg-blue-100 text-right font-mono text-blue-950 text-3xl py-4 w-full">
+                        Syntaxe Error
+                    </p>
+                )}
+            </div>
         </div>
     );
 };
