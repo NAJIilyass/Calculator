@@ -559,7 +559,15 @@ const Calc = () => {
                         Syntaxe Error
                     </p>
                 )}
-            </div>
+            </div><div className="text-center grid grid-rows-5 gap-5 mt-5">
+                <div className="grid grid-cols-5 gap-5">
+                    {ch1.map((ch) => (
+                        <div
+                            onClick={() => handleClick(ch)}
+                            key={ch}
+                            className={`${
+                                syntaxeError && ch!=='clear' ? 'opacity-50 cursor-not-allowed' : ''
+                            } ${
         </div>
     );
 };
