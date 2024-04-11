@@ -568,6 +568,17 @@ const Calc = () => {
                             className={`${
                                 syntaxeError && ch!=='clear' ? 'opacity-50 cursor-not-allowed' : ''
                             } ${
+                                Number.isInteger(ch)
+                                ? 'border-none cursor-pointer text-blue-950 bg-blue-100 rounded-xl py-4'
+                                : ch === 'ENTER'
+                                ? 'border-none bg-blue-800 text-xl text-white cursor-pointer rounded-xl pt-4 col-span-2'
+                                : 'border-none bg-blue-300 cursor-pointer rounded-xl py-4'
+                            }`}
+                        >
+                            {ch!=="(" && <p>{ch}</p>}
+                            {ch==="(" && 
+                                <p>{ch} {clickParenthesis>0 && <span className="text-sm">{clickParenthesis}</span>}</p>}
+                        </div>
         </div>
     );
 };
