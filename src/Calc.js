@@ -578,7 +578,11 @@ const Calc = () => {
                             {ch!=="(" && <p>{ch}</p>}
                             {ch==="(" && 
                                 <p>{ch} {clickParenthesis>0 && <span className="text-sm">{clickParenthesis}</span>}</p>}
-                        </div>
+                        </div>))}
+                </div>
+                <div className="grid grid-cols-5 gap-5">
+                    {ch2.map((ch) => (
+                        <div
         </div>
     );
 };
