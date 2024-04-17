@@ -595,7 +595,16 @@ const Calc = () => {
                         }`}
                     >
                         <p>{ch}</p>
-                    </div>
+                    </div>))}
+                </div>
+                <div className="grid grid-cols-5 gap-5">
+                    {ch3.map((ch) => (
+                        <div
+                            onClick={() => handleClick(ch)}
+                            key={ch}
+                            className={`${
+                                syntaxeError ? 'opacity-50 cursor-not-allowed' : ''
+                            }
         </div>
     );
 };
