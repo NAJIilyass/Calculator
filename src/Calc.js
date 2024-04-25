@@ -633,7 +633,11 @@ const Calc = () => {
                             }`}
                         >
                             <p>{ch}</p>
-                        </div>
+                        </div>))}
+                </div>
+                <div className="grid grid-cols-5 gap-5">
+                    {ch5.map((ch) => (
+                        <div
         </div>
     );
 };
