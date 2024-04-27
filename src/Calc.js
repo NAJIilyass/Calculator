@@ -638,6 +638,20 @@ const Calc = () => {
                 <div className="grid grid-cols-5 gap-5">
                     {ch5.map((ch) => (
                         <div
+                            onClick={() => handleClick(ch)}
+                            key={ch}
+                            className={`${
+                                syntaxeError ? 'opacity-50 cursor-not-allowed' : ''
+                            } ${
+                                Number.isInteger(ch)
+                                ? 'border-none cursor-pointer text-blue-950 bg-blue-100 rounded-xl py-4'
+                                : ch === 'ENTER'
+                                ? 'border-none bg-blue-800 text-base lg:text-xl text-white cursor-pointer rounded-xl pt-4 col-span-2'
+                                : 'border-none bg-blue-300 cursor-pointer rounded-xl py-4'
+                            }`}
+                        >
+                            <p>{ch}</p>
+                        </div>
         </div>
     );
 };
