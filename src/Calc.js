@@ -652,8 +652,11 @@ const Calc = () => {
                         >
                             <p>{ch}</p>
                         </div>
+                    ))}
+                </div>
+            </div>
         </div>
-    );
-};
+     );
+}
 
 export default Calc;
